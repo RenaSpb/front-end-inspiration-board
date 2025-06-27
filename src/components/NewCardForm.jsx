@@ -1,0 +1,54 @@
+import { useState } from 'react';
+import './NewCardForm.css';
+
+const NewCardForm = ({onCreateCard, selectedBoard}) => {
+    const [formData, setFormData] = useState({
+        message:'',
+    })
+    const [error, setError] = useState('');
+
+    const handleInputChange = (e) => {
+        setFormData({ 
+            ...formData, 
+            message: e.target.value,
+        });
+        if (error) setError('');
+        }
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!formData.message.trim()) {
+            setError('Message cannot be empty');
+            return;
+        }
+
+        // create a card on the selected board/ use board id to link
+        const newCardData = {
+            message: formData.message.trim(),
+            board_id: selectedBoard.id,
+        };
+        
+        // call function from App.jsx
+        onCreateCard(newCardData);
+
+        setFormData({
+            message: '',
+        });
+    }
+
+    return(
+      <form onSubmit={handleSubmit} className="new-card-form">
+        <label htmlFor="message">Message: </label>
+        <input
+            id="message"
+            type="text"
+            value={formData.message}
+            onChange={handleInputChange} />
+        {error && <p className="error-message">{error}</p>}
+        <input type="submit" value="Add Card" />
+      </form>
+    )
+};
+
+export default NewCardForm

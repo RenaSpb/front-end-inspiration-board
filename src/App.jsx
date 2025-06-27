@@ -2,91 +2,142 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import BoardList from './components/BoardList'
 import NewBoardForm from './components/NewBoardForm'
+import CardList from './components/CardList';
+import NewCardForm from './components/NewCardForm';
 import './App.css'
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 function App() {
-  const [boards, setBoards] = useState([])
-  const [selectedBoard, setSelectedBoard] = useState(null)
-  const [showNewBoardForm, setShowNewBoardForm] = useState(true)
-  const [error, setError] = useState('')
+  const [boards, setBoards] = useState([]);
+  const [selectedBoard, setSelectedBoard] = useState(null);
+  const [showNewBoardForm, setShowNewBoardForm] = useState(true);
+  const [error, setError] = useState("");
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetchBoards()
-  }, [])
+    fetchBoards();
+  }, []);
 
   const fetchBoards = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/boards`)
-      setBoards(response.data)
-      setError('')
+      const response = await axios.get(`${BACKEND_URL}/boards`);
+      setBoards(response.data);
+      setError("");
     } catch (error) {
-      console.error('Error fetching boards:', error)
-      setError('Failed to load boards')
+      console.error("Error fetching boards:", error);
+      setError("Failed to load boards");
     }
-  }
+  };
 
   const createBoard = async (boardData) => {
     try {
-      const response = await axios.post(`${BACKEND_URL}/boards`, boardData)
-      setBoards([...boards, response.data])
-      setError('')
-      return true
+      const response = await axios.post(`${BACKEND_URL}/boards`, boardData);
+      setBoards([...boards, response.data]);
+      setError("");
+      return true;
     } catch (error) {
-      console.error('Error creating board:', error)
-      setError('Failed to create board')
-      return false
+      console.error("Error creating board:", error);
+      setError("Failed to create board");
+      return false;
     }
-  }
+  };
 
   const selectBoard = (board) => {
-    setSelectedBoard(board)
-  }
+    setSelectedBoard(board);
+  };
 
   const toggleNewBoardForm = () => {
-    setShowNewBoardForm(!showNewBoardForm)
-  }
+    setShowNewBoardForm(!showNewBoardForm);
+  };
+
+  useEffect(() => {
+    if (selectedBoard) {
+      axios
+        .get(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`)
+        .then((response) => setCards(response.data))
+        .catch((error) => console.log(error));
+    }
+  }, [selectedBoard]);
+
+  const createCard = (newCardData) => {
+    axios
+      .post(`${BACKEND_URL}/cards`, newCardData)
+      .then((response) => {
+        console.log("New card added:", response.data);
+        setCards((prevCards) => [response.data, ...prevCards]);
+      })
+      .catch((error) => console.log("Error creating card", error));
+  };
+
+  const likeCardById = (id) => {
+    axios
+      .patch(`${BACKEND_URL}/cards/${id}/like`)
+      .then((response) => {
+        const updatedCard = response.data.card;
+        setCards((prevCards) =>
+          prevCards.map((card) => (card.id === id ? updatedCard : card))
+        );
+      })
+      .catch((error) => console.log("Error cannot like card", error));
+  };
+
+  const deleteCardById = (id) => {
+    axios
+      .delete(`${BACKEND_URL}/cards/${id}`)
+      .then(() => {
+        setCards((prevCards) => prevCards.filter((card) => card.id !== id));
+      })
+      .catch((error) => console.log("Error deleting card", error));
+  };
 
   return (
-    <div className="App">
+    <div className='App'>
       <header>
         <h1>Inspiration Board</h1>
       </header>
 
       <main>
-        <div className="boards-section">
-          <div className="boards-header">
+        <div className='boards-section'>
+          <div className='boards-header'>
             <h2>Boards</h2>
             <button onClick={toggleNewBoardForm}>
-              {showNewBoardForm ? 'Hide Form' : 'New Board'}
+              {showNewBoardForm ? "Hide Form" : "New Board"}
             </button>
           </div>
 
-          {error && <div className="error-message">{error}</div>}
+          {error && <div className='error-message'>{error}</div>}
 
-          <BoardList 
+          <BoardList
             boards={boards}
             selectedBoard={selectedBoard}
             onSelectBoard={selectBoard}
           />
 
-          {showNewBoardForm && (
-            <NewBoardForm 
-              onCreateBoard={createBoard}
-            />
-          )}
+          {showNewBoardForm && <NewBoardForm onCreateBoard={createBoard} />}
 
           {selectedBoard && (
-            <div className="selected-board">
-              <h3>Selected Board: {selectedBoard.title}</h3>
-              <p>Owner: {selectedBoard.owner}</p>
-            </div>
+            <>
+              <div className='selected-board'>
+                <h3>Selected Board: {selectedBoard.title}</h3>
+                <p>Owner: {selectedBoard.owner}</p>
+              </div>
+
+              <NewCardForm
+                onCreateCard={createCard}
+                selectedBoard={selectedBoard}
+              />
+              <CardList
+                cards={cards}
+                onClickLikeCard={likeCardById}
+                onClickDeleteCard={deleteCardById}
+              />
+            </>
           )}
         </div>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
