@@ -15,7 +15,7 @@
   text-align: center;
   padding: 3rem 1rem;
   font-size: 1.1rem;
-  background: #f7fafc;
+  background: #fcfcfc;
   border-radius: 16px;
   border: 2px dashed #e2e8f0;
 }
@@ -45,7 +45,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #9bb5ff;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -60,9 +60,9 @@
 }
 
 .board-item.selected {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #f7faff 0%, #f1f5ff 100%);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  border-color: #9bb5ff;
+  background: #f0f4ff;
+  box-shadow: 0 8px 25px rgba(155, 181, 255, 0.2);
 }
 
 .board-item.selected::before {
@@ -88,11 +88,11 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #9bb5ff;
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 2px 8px rgba(155, 181, 255, 0.3);
 }

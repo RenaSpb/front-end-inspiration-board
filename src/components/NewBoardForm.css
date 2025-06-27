@@ -39,33 +39,33 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #6366f1;
+  border-color: #d4a574;
   background: white;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
 }
 
 .form-group input.error-input {
-  border-color: #f56565;
-  background-color: #fed7d7;
+  border-color: #f08a8a;
+  background-color: #fef1f1;
 }
 
 .form-group input.error-input:focus {
-  box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.1);
+  box-shadow: 0 0 0 3px rgba(240, 138, 138, 0.1);
 }
 
 .form-group .error-message {
-  background: #ef4444;
+  background: #f08a8a;
   color: white;
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   margin-top: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 2px 8px rgba(240, 138, 138, 0.3);
 }
 
 .submit-button {
-  background: #10b981;
+  background: #88d8a3;
   color: white;
   border: none;
   padding: 1rem 1.5rem;
@@ -75,13 +75,13 @@
   font-weight: 600;
   width: 100%;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(136, 216, 163, 0.3);
 }
 
 .submit-button:hover:not(:disabled) {
-  background: #059669;
+  background: #73c790;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 20px rgba(136, 216, 163, 0.4);
 }
 
 .submit-button:disabled {
