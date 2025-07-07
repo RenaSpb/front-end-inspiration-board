@@ -2,10 +2,14 @@ import PropTypes from 'prop-types';
 import './CardList.css';
 import Card from './Card.jsx';
 
-const CardList = ({cards, onClickLikeCard, onClickDeleteCard}) => {
-  const getCardListJSX = () => {
-    return cards.map((card) => {
-      return (
+const CardList = ({ cards, onClickLikeCard, onClickDeleteCard }) => {
+  if (!cards.length) {
+    return <p className="no-cards">No cards yet. Time to inspire!</p>;
+  }
+
+  return (
+    <ul className="cards-list">
+      {cards.map((card, index) => (
         <Card
           key={card.card_id}
           id={card.card_id}
@@ -13,14 +17,9 @@ const CardList = ({cards, onClickLikeCard, onClickDeleteCard}) => {
           likesCount={card.likes_count}
           onClickDeleteCard={onClickDeleteCard}
           onClickLikeCard={onClickLikeCard}
+          className={index === 0 ? "newly-added" : ""}
         />
-      );
-    });
-  };
-
-  return (
-    <ul className='cards-list'>
-      {getCardListJSX()}
+      ))}
     </ul>
   );
 };
@@ -28,9 +27,9 @@ const CardList = ({cards, onClickLikeCard, onClickDeleteCard}) => {
 CardList.propTypes = {
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      message: PropTypes.string.isRequired,
-      likesCount: PropTypes.number.isRequired,
+      id: PropTypes.number,
+      message: PropTypes.string,
+      likesCount: PropTypes.number,
     })
   ).isRequired,
   onClickDeleteCard: PropTypes.func,
