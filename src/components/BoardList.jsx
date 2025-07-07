@@ -1,6 +1,6 @@
 import './BoardList.css'
 
-const BoardList = ({ boards, selectedBoard, onSelectBoard }) => {
+const BoardList = ({ boards, selectedBoard, onSelectBoard, onClickDeleteBoard }) => {
   const handleBoardClick = (board) => {
     onSelectBoard(board)
   }
@@ -14,14 +14,25 @@ const BoardList = ({ boards, selectedBoard, onSelectBoard }) => {
       ) : (
         <div className="boards-container">
           {boards.map((board) => (
+
             <div 
-              key={board.board_id}
-              className={`board-item ${selectedBoard?.board_id === board.board_id ? 'selected' : ''}`}
-              onClick={() => handleBoardClick(board)}
-            >
+              key={board.id}
+              className={`board-item ${selectedBoard?.id === board.id                ? 'selected' : ''}`}
+              >
+              <div onClick={() => handleBoardClick(board)}>
               <h4>{board.title}</h4>
               <p>Owner: {board.owner}</p>
-              {selectedBoard?.board_id === board.board_id && (
+              </div>
+
+              <button
+              className="delete-board-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onClickDeleteBoard(board.id);
+              }}
+              > 🗑️ </button>
+
+              {selectedBoard?.id === board.id && (
                 <div className="selected-indicator">✓ Selected</div>
               )}
             </div>

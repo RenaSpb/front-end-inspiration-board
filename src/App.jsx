@@ -43,6 +43,20 @@ function App() {
     }
   };
 
+  const deleteBoardById = (id) => {
+    axios
+    .delete (`${BACKEND_URL}/boards/${id}`)
+    .then(() => {
+      setBoards(prevBoards => prevBoards.filter(board => board.id  !== id));
+
+      if (selectedBoard && selectedBoard.id  === id) {
+        setSelectedBoard(null);
+        setCards([]);
+      }
+    })
+    .catch(error => console.log("Error deleting board", error));
+  };
+
   const selectBoard = (board) => {
     setSelectedBoard(board);
   };
@@ -54,7 +68,7 @@ function App() {
   useEffect(() => {
     if (selectedBoard) {
       axios
-        .get(`${BACKEND_URL}/boards/${selectedBoard.board_id}/cards`)
+        .get(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`)
         .then((response) => {
           setCards(response.data.cards)
         })
@@ -64,7 +78,7 @@ function App() {
 
   const createCard = (newCardData) => {
     axios
-      .post(`${BACKEND_URL}/boards/${newCardData.board_id}/cards`, newCardData)
+      .post(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`, newCardData)
       .then((response) => {
         console.log("New card added:", response.data);
         setCards((prevCards) => [response.data, ...prevCards]);
@@ -114,6 +128,7 @@ function App() {
             boards={boards}
             selectedBoard={selectedBoard}
             onSelectBoard={selectBoard}
+            onClickDeleteBoard={deleteBoardById}
           />
 
           {showNewBoardForm && <NewBoardForm onCreateBoard={createBoard} />}

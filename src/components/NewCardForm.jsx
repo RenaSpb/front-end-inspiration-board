@@ -26,7 +26,7 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         // create a card on the selected board/ use board id to link
         const newCardData = {
             message: formData.message.trim(),
-            board_id: selectedBoard.board_id,
+            // board_id: selectedBoard.id,
         };
         
         // call function from App.jsx
