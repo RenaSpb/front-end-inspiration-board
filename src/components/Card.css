@@ -1,47 +1,59 @@
 .card {
-  background: var(--white);
-  padding: 1.5rem;
-  border-left: 5px solid var(--accent-secondary);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  background: #fffefb;
+  padding: 1.25rem;
+  margin: 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5ded2;
+  max-width: 280px;
+  min-height: 140px;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  background: #dcd3c3;
+  opacity: 0.6;
+  transform: rotate(-5deg);
+  top: -10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.card::after {
+  transform: rotate(5deg);
+  left: auto;
+  right: 10px;
 }
 
 .card button {
-  font-size: 1.2rem;
   background: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.1s ease;
-}
-
-.card button:active {
-  transform: scale(1.2);
+  font-size: 1rem;
+  color: #b48a78;
+  margin-bottom: 0.75rem;
 }
 
 .card p {
-  margin: 0;
   font-size: 1rem;
-  flex: 1;
-  text-align: center;
-  padding: 0 1rem;
-  color: var(--text-muted);
+  color: #42382e;
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
-.card.newly-added {
-  animation: highlight 1s ease-in-out;
-}
-
-@keyframes highlight {
-  from { background-color: #eae4da; }
-  to { background-color: var(--white); }
+.card button:last-child {
+  color: #776b5f;
+  font-size: 0.95rem;
 }

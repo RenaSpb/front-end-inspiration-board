@@ -2,19 +2,46 @@
   margin-bottom: 2rem;
 }
 
-.board-list h3 {
-  margin: 0 0 1.5rem 0;
-  color: #1a202c;
-  font-size: 1.5rem;
+.board-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+  background: #f4f1eb;
+  border-radius: 12px;
+  border: 1px solid #ddd5cb;
+  transition: background 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.board-list-header:hover {
+  background: #eae6de;
+}
+
+.board-list-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
   font-weight: 600;
+  color: #4a4a4a;
+}
+
+.toggle-icon {
+  font-size: 1rem;
+  color: #7c7c7c;
+  transition: transform 0.3s ease;
+}
+
+.board-list.collapsed .toggle-icon {
+  transform: rotate(180deg);
 }
 
 .no-boards {
-  color: #718096;
+  color: #aaa;
   font-style: italic;
   text-align: center;
-  padding: 3rem 1rem;
-  font-size: 1.1rem;
+  padding: 2rem 1rem;
+  font-size: 1rem;
   background: #fcfcfc;
   border-radius: 16px;
   border: 2px dashed #e2e8f0;
@@ -22,77 +49,86 @@
 
 .boards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
 .board-item {
   background: white;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
   position: relative;
-  overflow: hidden;
-}
-
-.board-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: #9bb5ff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .board-item:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   transform: translateY(-4px);
 }
 
-.board-item:hover::before {
-  opacity: 1;
-}
-
 .board-item.selected {
-  border-color: #9bb5ff;
-  background: #f0f4ff;
-  box-shadow: 0 8px 25px rgba(155, 181, 255, 0.2);
-}
-
-.board-item.selected::before {
-  opacity: 1;
+  border-color: #b1a296;
+  background: #fefaf6;
 }
 
 .board-item h4 {
-  margin: 0 0 0.75rem 0;
-  color: #1a202c;
-  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
   font-weight: 600;
-  line-height: 1.3;
 }
 
 .board-item p {
   margin: 0;
-  color: #718096;
+  color: #777;
   font-size: 0.9rem;
-  font-weight: 500;
 }
 
 .selected-indicator {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #9bb5ff;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: #cbb89d;
   color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(155, 181, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.delete-board-button {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.delete-board-button:hover {
+  opacity: 1;
+}
+
+.toggle-collapsible {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2d3436;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  margin-left: 0.75rem;
+  user-select: none;
 }

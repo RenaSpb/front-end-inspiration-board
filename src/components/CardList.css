@@ -1,17 +1,15 @@
 .cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-top: 2rem;
-  padding: 0;
-  list-style: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem 0;
 }
 
-.no-cards {
-  color: #718096;
-  font-style: italic;
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 1.1rem;
-  background: #fcfcfc;
-  border-radius: 16px;
-  border: 2px dashed #e2e8f0;
-  margin-top: 2rem;
+@media (max-width: 768px) {
+  .cards-list {
+    justify-content: center;
+  }
 }

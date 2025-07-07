@@ -2,8 +2,8 @@
   background: white;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  margin-top: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
   border: 1px solid #e2e8f0;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .submit-button {
-  background: #88d8a3;
+  background: #2d3436;
   color: white;
   border: none;
   padding: 1rem 1.5rem;
@@ -75,18 +75,16 @@
   font-weight: 600;
   width: 100%;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(136, 216, 163, 0.3);
+  box-shadow: none;
 }
 
 .submit-button:hover:not(:disabled) {
-  background: #73c790;
+  background: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(136, 216, 163, 0.4);
 }
 
 .submit-button:disabled {
   background: #9ca3af;
   cursor: not-allowed;
   transform: none;
-  box-shadow: 0 2px 8px rgba(156, 163, 175, 0.3);
 }
