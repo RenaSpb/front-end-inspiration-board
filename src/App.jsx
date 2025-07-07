@@ -54,15 +54,17 @@ function App() {
   useEffect(() => {
     if (selectedBoard) {
       axios
-        .get(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`)
-        .then((response) => setCards(response.data))
+        .get(`${BACKEND_URL}/boards/${selectedBoard.board_id}/cards`)
+        .then((response) => {
+          setCards(response.data.cards)
+        })
         .catch((error) => console.log(error));
     }
   }, [selectedBoard]);
 
   const createCard = (newCardData) => {
     axios
-      .post(`${BACKEND_URL}/cards`, newCardData)
+      .post(`${BACKEND_URL}/boards/${newCardData.board_id}/cards`, newCardData)
       .then((response) => {
         console.log("New card added:", response.data);
         setCards((prevCards) => [response.data, ...prevCards]);
@@ -70,23 +72,23 @@ function App() {
       .catch((error) => console.log("Error creating card", error));
   };
 
-  const likeCardById = (id) => {
+  const likeCardById = (card_id) => {
     axios
-      .patch(`${BACKEND_URL}/cards/${id}/like`)
+      .patch(`${BACKEND_URL}/cards/${card_id}/like`)
       .then((response) => {
         const updatedCard = response.data.card;
         setCards((prevCards) =>
-          prevCards.map((card) => (card.id === id ? updatedCard : card))
+          prevCards.map((card) => (card.card_id === card_id ? updatedCard : card))
         );
       })
       .catch((error) => console.log("Error cannot like card", error));
   };
 
-  const deleteCardById = (id) => {
+  const deleteCardById = (card_id) => {
     axios
-      .delete(`${BACKEND_URL}/cards/${id}`)
+      .delete(`${BACKEND_URL}/cards/${card_id}`)
       .then(() => {
-        setCards((prevCards) => prevCards.filter((card) => card.id !== id));
+        setCards((prevCards) => prevCards.filter((card) => card.card_id !== card_id));
       })
       .catch((error) => console.log("Error deleting card", error));
   };

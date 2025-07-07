@@ -7,10 +7,10 @@ const CardList = ({cards, onClickLikeCard, onClickDeleteCard}) => {
     return cards.map((card) => {
       return (
         <Card
-          key={card.id}
-          id={card.id}
+          key={card.card_id}
+          id={card.card_id}
           message={card.message}
-          likesCount={card.likesCount}
+          likesCount={card.likes_count}
           onClickDeleteCard={onClickDeleteCard}
           onClickLikeCard={onClickLikeCard}
         />
@@ -19,7 +19,7 @@ const CardList = ({cards, onClickLikeCard, onClickDeleteCard}) => {
   };
 
   return (
-    <ul className='cards__list no-bullet'>
+    <ul className='cards-list'>
       {getCardListJSX()}
     </ul>
   );

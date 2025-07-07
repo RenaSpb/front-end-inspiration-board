@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 const Card = ({id, message, likesCount, onClickDeleteCard, onClickLikeCard}) => {
-    const heart = likesCount > 0 ? '❤️' : '🤍';
+  const heart = likesCount > 0 ? '❤️' : '🤍';
 
   return (
     <div className="card">

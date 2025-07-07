@@ -26,7 +26,7 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         // create a card on the selected board/ use board id to link
         const newCardData = {
             message: formData.message.trim(),
-            board_id: selectedBoard.id,
+            board_id: selectedBoard.board_id,
         };
         
         // call function from App.jsx
@@ -42,15 +42,17 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         <h3>Create a New Card</h3>
 
        <form onSubmit={handleSubmit}> 
+
         <div className="form-group">
         <label htmlFor="message">Message: </label>
         <input
             id="message"
             type="text"
             value={formData.message}
-            onChange={handleInputChange} />
+            onChange={handleInputChange} 
+            placeholder="Enter inspirational message"/>
         {error && <p className="error-message">{error}</p>}
-        <input type="submit" value="Add Card" />
+        <button className="submit-card-button" type="submit"> submit </button>
       </div>
       </form>
       </div>
