@@ -60,6 +60,11 @@ function App() {
     setSelectedBoard(board);
   };
 
+  const goHome = () => {
+    setSelectedBoard(null);
+    setCards([]);
+  };
+
   useEffect(() => {
     if (selectedBoard) {
       axios
@@ -103,10 +108,12 @@ function App() {
 
   return (
     <div className="App">
-  
-
       <main>
         <div className="boards-section">
+          <h2 className="boards-home-title" onClick={goHome}>
+            Our board
+          </h2>
+
           <NewBoardForm onCreateBoard={createBoard} />
 
           {error && <div className="error-message">{error}</div>}
@@ -134,7 +141,7 @@ function App() {
             </>
           ) : (
             <div className="placeholder-container">
-              <img src="/home.png" alt="Welcome" className="an assortment of images" />
+              <img src="/home.png" alt="Welcome" className="placeholder-image" />
             </div>
           )}
         </div>

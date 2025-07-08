@@ -16,19 +16,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-header h1 {
-  color: #2d3436;
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
 main {
   display: flex;
   gap: 2rem;
@@ -43,6 +30,22 @@ main {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
   border: 1px solid #f3f4f6;
   flex-shrink: 0;
+}
+
+.boards-home-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin: 0 0 1.5rem 0;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.boards-home-title:hover {
+  color: #D3D3FF;
+  transform: scale(1.05);
 }
 
 .right-panel {
@@ -77,8 +80,6 @@ main {
   max-width: 80%;
   max-height: 80%;
   object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .boards-header {
