@@ -71,13 +71,15 @@ function App() {
     }
   }, [selectedBoard]);
 
-  const createCard = (newCardData) => {
-    axios
-      .post(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`, newCardData)
-      .then((response) => {
-        setCards((prevCards) => [response.data, ...prevCards]);
-      })
-      .catch((error) => console.log('Error creating card', error));
+  const createCard = async (newCardData) => {
+    try {
+      const response = await axios.post(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`, newCardData);
+      setCards((prevCards) => [response.data, ...prevCards]);
+      return true;
+    } catch (error) {
+      console.log('Error creating card', error);
+      throw error;
+    }
   };
 
   const likeCardById = (card_id) => {
