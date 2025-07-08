@@ -43,6 +43,13 @@
   font-size: 1rem;
   color: #b48a78;
   margin-bottom: 0.75rem;
+  border-radius: 25px;
+  padding: 0.3rem 0.6rem;
+  transition: background 0.2s ease;
+}
+
+.card button:hover {
+  background: rgba(180, 138, 120, 0.1);
 }
 
 .card p {

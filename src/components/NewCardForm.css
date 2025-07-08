@@ -4,7 +4,7 @@
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
   margin-top: 2rem;
-  border: 1px solid var(--accent);
+  border: 1px solid #e8a99e;
 }
 
 .new-card-form h3 {
@@ -28,8 +28,8 @@
 .form-group input {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 2px solid var(--accent);
-  border-radius: 12px;
+  border: 2px solid #e8a99e;
+  border-radius: 25px;
   font-size: 1rem;
   background: #fafafa;
   transition: border-color 0.3s ease;
@@ -38,9 +38,9 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--highlight);
+  border-color: #e8a99e;
   background: white;
-  box-shadow: 0 0 0 3px rgba(138, 124, 114, 0.1);
+  box-shadow: 0 0 0 3px rgba(232, 169, 158, 0.1);
 }
 
 .form-group input.error-input {
@@ -52,27 +52,28 @@
   background: #f08a8a;
   color: white;
   padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  border-radius: 25px;
   margin-top: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
 }
 
 .submit-card-button {
-  background: var(--accent-secondary);
+  background: #e8a99e;
   color: white;
-  padding: 1rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   font-weight: 600;
   border: none;
-  border-radius: 12px;
-  width: 100%;
+  border-radius: 25px;
+  width: auto;
+  display: inline-block;
   transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .submit-card-button:hover:not(:disabled) {
-  background: var(--highlight);
+  background: #d89088;
   transform: translateY(-2px);
 }
 

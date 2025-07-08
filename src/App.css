@@ -73,7 +73,7 @@ main {
   color: #1a1a1a;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 500;
@@ -90,29 +90,31 @@ main {
   background: #f08a8a;
   color: white;
   padding: 1rem 1.25rem;
-  border-radius: 12px;
+  border-radius: 25px;
   margin-bottom: 1.5rem;
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(240, 138, 138, 0.3);
 }
 
 .selected-board {
-  background: #88d8a3;
-  color: white;
+  background: white;
+  color: #333;
   padding: 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(136, 216, 163, 0.3);
+  border: 2px solid #e8a99e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .selected-board h3 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   font-weight: 600;
+  color: #2d3436;
 }
 
 .selected-board p {
   margin: 0;
-  opacity: 0.9;
+  color: #666;
   font-weight: 500;
 }
 
