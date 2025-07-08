@@ -25,21 +25,21 @@
 .card::after {
   content: '';
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   background: url('https://images.vexels.com/media/users/3/194535/isolated/lists/11a3ab727eb3bed1f1a42877402be726-push-pin-flat-icon.png') no-repeat center;
   background-size: contain;
-  top: 8px;
+  top: 5px;
   z-index: 3;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .card::before {
-  left: 8px;
+  left: 5px;
 }
 
 .card::after {
-  right: 8px;
+  right: 5px;
 }
 
 .card p {
