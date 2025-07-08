@@ -69,7 +69,7 @@ const NewBoardForm = ({ onCreateBoard }) => {
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Board Title:</label>
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
             id="title"
@@ -83,7 +83,7 @@ const NewBoardForm = ({ onCreateBoard }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="owner">Owner Name:</label>
+          <label htmlFor="owner">Owner:</label>
           <input
             type="text"
             id="owner"

@@ -70,8 +70,8 @@
 }
 
 .board-item.selected {
-  border-color: #b1a296;
-  background: #fefaf6;
+  border-color: #74c476;
+  background: #f8fff8;
 }
 
 .board-item h4 {
@@ -85,19 +85,6 @@
   margin: 0;
   color: #777;
   font-size: 0.9rem;
-}
-
-.selected-indicator {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: #cbb89d;
-  color: white;
-  padding: 0.25rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .delete-board-button {

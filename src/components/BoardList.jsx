@@ -48,10 +48,6 @@ const BoardList = ({ boards, selectedBoard, onSelectBoard, onClickDeleteBoard })
                 >
                   🗑️
                 </button>
-
-                {selectedBoard?.id === board.id && (
-                  <div className="selected-indicator">✓ Selected</div>
-                )}
               </div>
             ))}
           </div>
