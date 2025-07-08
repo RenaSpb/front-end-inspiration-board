@@ -1,12 +1,11 @@
 .cards-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
-  justify-content: flex-start;
-  align-items: flex-start;
   padding: 1rem 0;
   width: 100%;
+  justify-items: center;
 }
 
 .no-cards {
@@ -19,6 +18,7 @@
   border-radius: 16px;
   border: 2px dashed #e2e8f0;
   margin: 2rem 0;
+  grid-column: 1 / -1;
 }
 
 .newly-added {
@@ -37,15 +37,8 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .cards-list {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 500px) {
-  .cards-list {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 }
