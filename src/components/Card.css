@@ -21,49 +21,25 @@
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Push pin heads */
 .card::before,
 .card::after {
   content: '';
   position: absolute;
-  width: 16px;
-  height: 16px;
-  background: radial-gradient(circle at 30% 30%, #ff6b6b, #e55656, #cc4444);
-  border-radius: 50%;
-  top: 12px;
+  width: 24px;
+  height: 24px;
+  background: url('https://images.vexels.com/media/users/3/194535/isolated/lists/11a3ab727eb3bed1f1a42877402be726-push-pin-flat-icon.png') no-repeat center;
+  background-size: contain;
+  top: 8px;
   z-index: 3;
-  box-shadow: 
-    0 3px 6px rgba(0, 0, 0, 0.3),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.4);
-  border: 1px solid #cc4444;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .card::before {
-  left: 12px;
+  left: 8px;
 }
 
 .card::after {
-  right: 12px;
-}
-
-/* Push pin shadows/bodies - using box-shadow to create the pin effect */
-.card::before {
-  box-shadow: 
-    0 3px 6px rgba(0, 0, 0, 0.3),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
-    0 18px 0 -6px #888,
-    0 20px 3px rgba(0, 0, 0, 0.2);
-}
-
-.card::after {
-  box-shadow: 
-    0 3px 6px rgba(0, 0, 0, 0.3),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
-    0 18px 0 -6px #888,
-    0 20px 3px rgba(0, 0, 0, 0.2);
+  right: 8px;
 }
 
 .card p {
@@ -75,7 +51,7 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 .card-actions {
