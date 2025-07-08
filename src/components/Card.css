@@ -1,13 +1,13 @@
 .card {
   position: relative;
   background: #fffefb;
-  padding: 1.25rem;
+  padding: 1.5rem;
   margin: 0.5rem;
   border-radius: 12px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
   border: 2px solid #E185A3;
-  width: 280px;
-  min-height: 160px;
+  width: 420px;
+  min-height: 180px;
   font-family: 'Poppins', sans-serif;
   transition: transform 0.2s ease;
   display: flex;
@@ -40,7 +40,7 @@
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #42382e;
   line-height: 1.4;
   font-weight: 500;

@@ -101,7 +101,7 @@ const NewBoardForm = ({ onCreateBoard }) => {
           disabled={isSubmitting}
           className="submit-button"
         >
-          {isSubmitting ? 'Creating...' : 'Create Board'}
+          {isSubmitting ? 'Creating...' : 'Add Board'}
         </button>
       </form>
     </div>

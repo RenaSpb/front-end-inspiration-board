@@ -47,13 +47,12 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
 
        <form onSubmit={handleSubmit}> 
         <div className="form-group">
-          <label htmlFor="message">Message: </label>
           <input
               id="message"
               type="text"
               value={formData.message}
               onChange={handleInputChange} 
-              placeholder="Enter inspirational message"
+              placeholder="Add a message"
               className={error ? 'error-input' : ''}
           />
           {error && <p className="error-message">{error}</p>}
