@@ -32,24 +32,21 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         setIsSubmitting(true);
         setError('');
 
-        try {
-            // create a card on the selected board/ use board id to link
-            const newCardData = {
-                message: formData.message.trim(),
-                // board_id: selectedBoard.id,
-            };
-            
-            // call function from App.jsx
-            await onCreateCard(newCardData);
-
+        const newCardData = {
+            message: formData.message.trim(),
+        };
+        
+        const result = await onCreateCard(newCardData);
+        
+        if (result.success) {
             setFormData({
                 message: '',
             });
-        } catch (err) {
+        } else {
             setError('Failed to create card. Please try again.');
-        } finally {
-            setIsSubmitting(false);
         }
+        
+        setIsSubmitting(false);
     }
 
     const characterCount = formData.message.length;
