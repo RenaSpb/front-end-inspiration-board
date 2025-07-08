@@ -59,7 +59,7 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
               type="text"
               value={formData.message}
               onChange={handleInputChange} 
-              placeholder="Keep it short and sweet!"
+              placeholder="Add a message"
               className={error ? 'error-input' : ''}
               maxLength={maxLength}
           />

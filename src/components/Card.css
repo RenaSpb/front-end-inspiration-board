@@ -1,10 +1,10 @@
 .card {
   position: relative;
-  background: #fffefb;
+  background: rgba(255, 254, 251, 0.95);
   padding: 1.5rem;
   margin: 0.5rem;
   border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   border: 2px solid #E185A3;
   width: 420px;
   min-height: 180px;
@@ -13,10 +13,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  backdrop-filter: blur(5px);
 }
 
 .card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 .card::before,
@@ -56,7 +58,7 @@
   align-items: center;
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid rgba(240, 240, 240, 0.8);
 }
 
 .card-actions button {
@@ -72,7 +74,7 @@
 }
 
 .card-actions button:hover {
-  background: rgba(119, 107, 95, 0.1);
+  background: rgba(119, 107, 95, 0.2);
   transform: translateY(-1px);
 }
 
@@ -81,5 +83,5 @@
 }
 
 .card-actions button:first-child:hover {
-  background: rgba(225, 133, 163, 0.1);
+  background: rgba(225, 133, 163, 0.2);
 }

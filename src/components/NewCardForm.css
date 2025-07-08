@@ -1,9 +1,10 @@
 .new-card-form {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.95);
   padding: 1.5rem;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   border: 2px solid #D3D3FF;
+  backdrop-filter: blur(10px);
 }
 
 .selected-board-info {
@@ -30,28 +31,25 @@
   margin-bottom: 1.5rem;
 }
 
-.form-group textarea {
+.form-group input {
   width: 100%;
   padding: 0.875rem 1rem;
   border: 2px solid #D3D3FF;
-  border-radius: 15px;
+  border-radius: 25px;
   font-size: 1rem;
-  background: #fafafa;
+  background: rgba(250, 250, 250, 0.9);
   transition: border-color 0.3s ease;
   box-sizing: border-box;
-  resize: vertical;
-  min-height: 80px;
-  font-family: 'Poppins', sans-serif;
 }
 
-.form-group textarea:focus {
+.form-group input:focus {
   outline: none;
   border-color: #D3D3FF;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 0 3px rgba(211, 211, 255, 0.2);
 }
 
-.form-group textarea.error-input {
+.form-group input.error-input {
   border-color: #f08a8a;
   background-color: #fef1f1;
 }
@@ -61,6 +59,11 @@
   font-size: 0.8rem;
   color: #777;
   margin-top: 0.25rem;
+}
+
+.character-count.warning {
+  color: #e74c3c;
+  font-weight: 600;
 }
 
 .error-message {
@@ -95,5 +98,4 @@
 .submit-card-button:disabled {
   background: #aaa;
   cursor: not-allowed;
-  transform: none;
 }
