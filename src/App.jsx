@@ -124,10 +124,6 @@ function App() {
         <div className="right-panel">
           {selectedBoard && (
             <>
-              <div className="selected-board">
-                <h3>{selectedBoard.title} By {selectedBoard.owner}</h3>
-              </div>
-
               <NewCardForm
                 onCreateCard={createCard}
                 selectedBoard={selectedBoard}

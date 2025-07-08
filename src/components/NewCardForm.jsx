@@ -39,7 +39,11 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
 
     return(
       <div className="new-card-form">
-        <h3>Create a New Card</h3>
+        <div className="selected-board-info">
+          <h3>{selectedBoard.title} By {selectedBoard.owner}</h3>
+        </div>
+        
+        <h4>Post a new card!</h4>
 
        <form onSubmit={handleSubmit}> 
         <div className="form-group">
