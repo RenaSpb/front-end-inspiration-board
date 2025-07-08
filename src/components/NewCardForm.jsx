@@ -42,18 +42,19 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         <h3>Create a New Card</h3>
 
        <form onSubmit={handleSubmit}> 
-
         <div className="form-group">
-        <label htmlFor="message">Message: </label>
-        <input
-            id="message"
-            type="text"
-            value={formData.message}
-            onChange={handleInputChange} 
-            placeholder="Enter inspirational message"/>
-        {error && <p className="error-message">{error}</p>}
-        <button className="submit-card-button" type="submit"> submit </button>
-      </div>
+          <label htmlFor="message">Message: </label>
+          <input
+              id="message"
+              type="text"
+              value={formData.message}
+              onChange={handleInputChange} 
+              placeholder="Enter inspirational message"
+              className={error ? 'error-input' : ''}
+          />
+          {error && <p className="error-message">{error}</p>}
+        </div>
+        <button className="submit-card-button" type="submit">Submit</button>
       </form>
       </div>
     )

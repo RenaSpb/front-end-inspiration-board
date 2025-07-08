@@ -107,8 +107,8 @@ function App() {
         <h1>Inspiration Board</h1>
       </header>
 
-      <main className="main-layout">
-        <div className="left-column">
+      <main>
+        <div className="boards-section">
           <NewBoardForm onCreateBoard={createBoard} />
 
           {error && <div className="error-message">{error}</div>}
@@ -121,7 +121,7 @@ function App() {
           />
         </div>
 
-        <div className="right-column">
+        <div className="right-panel">
           {selectedBoard && (
             <>
               <div className="selected-board">

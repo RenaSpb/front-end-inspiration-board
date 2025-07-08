@@ -27,9 +27,9 @@ const CardList = ({ cards, onClickLikeCard, onClickDeleteCard }) => {
 CardList.propTypes = {
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      card_id: PropTypes.number,
       message: PropTypes.string,
-      likesCount: PropTypes.number,
+      likes_count: PropTypes.number,
     })
   ).isRequired,
   onClickDeleteCard: PropTypes.func,

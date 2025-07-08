@@ -1,4 +1,4 @@
-.new-board-form {
+.new-card-form {
   background: var(--white);
   padding: 2rem;
   border-radius: 20px;
@@ -7,7 +7,7 @@
   border: 1px solid var(--accent);
 }
 
-.new-board-form h3 {
+.new-card-form h3 {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -33,6 +33,7 @@
   font-size: 1rem;
   background: #fafafa;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .form-group input:focus {
@@ -57,7 +58,7 @@
   font-weight: 500;
 }
 
-.submit-button {
+.submit-card-button {
   background: var(--accent-secondary);
   color: white;
   padding: 1rem 1.5rem;
@@ -66,14 +67,16 @@
   border-radius: 12px;
   width: 100%;
   transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.submit-button:hover:not(:disabled) {
+.submit-card-button:hover:not(:disabled) {
   background: var(--highlight);
   transform: translateY(-2px);
 }
 
-.submit-button:disabled {
+.submit-card-button:disabled {
   background: #aaa;
   cursor: not-allowed;
 }
