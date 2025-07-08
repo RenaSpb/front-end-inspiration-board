@@ -1,29 +1,17 @@
-.new-card-form {
-  background: var(--white);
-  padding: 1.5rem;
+.new-board-form {
+  background: white;
+  padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-  border: 1px solid #e8a99e;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  border: 1px solid #e2e8f0;
 }
 
-.selected-board-info {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.selected-board-info h3 {
-  margin: 0;
+.new-board-form h3 {
+  margin: 0 0 1.5rem 0;
+  color: #1a202c;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #2d3436;
-}
-
-.new-card-form h4 {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #2d3436;
 }
 
 .form-group {
@@ -33,26 +21,27 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: var(--text);
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 2px solid #e8a99e;
+  border: 2px solid #D3D3FF;
   border-radius: 25px;
   font-size: 1rem;
-  background: #fafafa;
-  transition: border-color 0.3s ease;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+  background: #fafafa;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #e8a99e;
+  border-color: #D3D3FF;
   background: white;
-  box-shadow: 0 0 0 3px rgba(232, 169, 158, 0.1);
+  box-shadow: 0 0 0 3px rgba(211, 211, 255, 0.2);
 }
 
 .form-group input.error-input {
@@ -60,7 +49,11 @@
   background-color: #fef1f1;
 }
 
-.error-message {
+.form-group input.error-input:focus {
+  box-shadow: 0 0 0 3px rgba(240, 138, 138, 0.1);
+}
+
+.form-group .error-message {
   background: #f08a8a;
   color: white;
   padding: 0.5rem 0.75rem;
@@ -68,28 +61,30 @@
   margin-top: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
+  box-shadow: 0 2px 8px rgba(240, 138, 138, 0.3);
 }
 
-.submit-card-button {
-  background: #e8a99e;
-  color: white;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
+.submit-button {
+  background: #D3D3FF;
+  color: #2d3436;
   border: none;
+  padding: 1rem 1.5rem;
   border-radius: 25px;
-  width: auto;
-  display: inline-block;
-  transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: none;
 }
 
-.submit-card-button:hover:not(:disabled) {
-  background: #d89088;
+.submit-button:hover:not(:disabled) {
+  background: #c9c9ff;
   transform: translateY(-2px);
 }
 
-.submit-card-button:disabled {
-  background: #aaa;
+.submit-button:disabled {
+  background: #9ca3af;
   cursor: not-allowed;
+  transform: none;
 }

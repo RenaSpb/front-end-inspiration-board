@@ -29,7 +29,7 @@
 .form-group input {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 2px solid #e8a99e;
+  border: 2px solid #D3D3FF;
   border-radius: 25px;
   font-size: 1rem;
   box-sizing: border-box;
@@ -39,9 +39,9 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #e8a99e;
+  border-color: #D3D3FF;
   background: white;
-  box-shadow: 0 0 0 3px rgba(232, 169, 158, 0.1);
+  box-shadow: 0 0 0 3px rgba(211, 211, 255, 0.2);
 }
 
 .form-group input.error-input {
@@ -65,8 +65,8 @@
 }
 
 .submit-button {
-  background: #e8a99e;
-  color: white;
+  background: #D3D3FF;
+  color: #2d3436;
   border: none;
   padding: 1rem 1.5rem;
   border-radius: 25px;
@@ -79,7 +79,7 @@
 }
 
 .submit-button:hover:not(:disabled) {
-  background: #d89088;
+  background: #c9c9ff;
   transform: translateY(-2px);
 }
 
