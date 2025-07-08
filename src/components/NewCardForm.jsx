@@ -6,7 +6,6 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         message:'',
     })
     const [error, setError] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleInputChange = (e) => {
         setFormData({ 
@@ -16,7 +15,7 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
         if (error) setError('');
         }
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!formData.message.trim()) {
@@ -24,33 +23,26 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
             return;
         }
 
-        if (formData.message.trim().length > 500) {
-            setError('Message is too long (max 500 characters)');
+        if (formData.message.trim().length > 42) {
+            setError('Keep it short! (max 42 characters)');
             return;
         }
-
-        setIsSubmitting(true);
-        setError('');
 
         const newCardData = {
             message: formData.message.trim(),
         };
         
-        const result = await onCreateCard(newCardData);
-        
-        if (result.success) {
-            setFormData({
-                message: '',
-            });
-        } else {
-            setError('Failed to create card. Please try again.');
-        }
-        
-        setIsSubmitting(false);
+        onCreateCard(newCardData);
+
+        setFormData({
+            message: '',
+        });
+        setError('');
     }
 
     const characterCount = formData.message.length;
-    const maxLength = 500;
+    const maxLength = 42;
+    const remaining = maxLength - characterCount;
 
     return(
       <div className="new-card-form">
@@ -62,27 +54,21 @@ const NewCardForm = ({onCreateCard, selectedBoard}) => {
 
        <form onSubmit={handleSubmit}> 
         <div className="form-group">
-          <textarea
+          <input
               id="message"
+              type="text"
               value={formData.message}
               onChange={handleInputChange} 
-              placeholder="Add a message"
+              placeholder="Keep it short and sweet!"
               className={error ? 'error-input' : ''}
-              rows="3"
               maxLength={maxLength}
           />
-          <div className="character-count">
-            {characterCount}/{maxLength}
+          <div className={`character-count ${remaining <= 5 ? 'warning' : ''}`}>
+            {remaining} characters left
           </div>
           {error && <p className="error-message">{error}</p>}
         </div>
-        <button 
-          className="submit-card-button" 
-          type="submit"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Posting...' : 'Submit'}
-        </button>
+        <button className="submit-card-button" type="submit">Submit</button>
       </form>
       </div>
     )
