@@ -6,11 +6,13 @@ const Card = ({ id, message, likesCount, onClickDeleteCard, onClickLikeCard, cla
 
   return (
     <div className={`card ${className}`}>
-      <button onClick={() => onClickDeleteCard(id)} title="Delete this card">🗑️</button>
       <p>{message}</p>
-      <button onClick={() => onClickLikeCard(id)} title="Like this card">
-        {likesCount} {heart}
-      </button>
+      <div className="card-actions">
+        <button onClick={() => onClickLikeCard(id)} title="Like this card">
+          {likesCount} {heart}
+        </button>
+        <button onClick={() => onClickDeleteCard(id)} title="Delete this card">🗑️</button>
+      </div>
     </div>
   );
 };
