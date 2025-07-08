@@ -22,7 +22,7 @@
 
 .newly-added {
   animation: fadeInScale 0.5s ease-out;
-  border: 2px solid #88d8a3 !important;
+  border: 2px solid #E185A3 !important;
 }
 
 @keyframes fadeInScale {

@@ -125,8 +125,7 @@ function App() {
           {selectedBoard && (
             <>
               <div className="selected-board">
-                <h3>Selected Board: {selectedBoard.title}</h3>
-                <p>Owner: {selectedBoard.owner}</p>
+                <h3>{selectedBoard.title} By {selectedBoard.owner}</h3>
               </div>
 
               <NewCardForm
