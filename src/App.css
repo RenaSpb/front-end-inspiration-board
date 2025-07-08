@@ -64,9 +64,6 @@ main {
   padding: 0;
 }
 
-.right-panel.has-board {
-  background-color: #FFC5D3;
-}
 
 .placeholder-container {
   display: flex;
@@ -155,4 +152,64 @@ main {
 
 .form-wrapper.show {
   display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .boards-section {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .right-panel {
+    width: 100%;
+    min-height: 400px;
+  }
+  
+  .App {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .boards-home-title {
+    font-size: 1.8rem;
+  }
+  
+  .placeholder-image {
+    max-width: 90%;
+    max-height: 70%;
+  }
+  
+  .boards-section {
+    padding: 1.5rem;
+  }
+  
+  .right-panel.has-board {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 0.5rem;
+  }
+  
+  .boards-section {
+    padding: 1rem;
+  }
+  
+  .right-panel.has-board {
+    padding: 1rem;
+  }
+  
+  .boards-home-title {
+    font-size: 1.6rem;
+  }
 }
