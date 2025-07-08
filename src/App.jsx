@@ -72,16 +72,12 @@ function App() {
   }, [selectedBoard]);
 
   const createCard = (newCardData) => {
-    return axios
+    axios
       .post(`${BACKEND_URL}/boards/${selectedBoard.id}/cards`, newCardData)
       .then((response) => {
         setCards((prevCards) => [response.data, ...prevCards]);
-        return { success: true };
       })
-      .catch((error) => {
-        console.log('Error creating card', error);
-        return { success: false, error: error.message };
-      });
+      .catch((error) => console.log('Error creating card', error));
   };
 
   const likeCardById = (card_id) => {
@@ -107,9 +103,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Inspiration Board</h1>
-      </header>
+  
 
       <main>
         <div className="boards-section">
@@ -125,8 +119,8 @@ function App() {
           />
         </div>
 
-        <div className="right-panel">
-          {selectedBoard && (
+        <div className={`right-panel ${selectedBoard ? 'has-board' : 'no-board'}`}>
+          {selectedBoard ? (
             <>
               <NewCardForm
                 onCreateCard={createCard}
@@ -138,6 +132,10 @@ function App() {
                 onClickDeleteCard={deleteCardById}
               />
             </>
+          ) : (
+            <div className="placeholder-container">
+              <img src="/home.png" alt="Welcome" className="an assortment of images" />
+            </div>
           )}
         </div>
       </main>

@@ -52,12 +52,33 @@ main {
   gap: 2rem;
   position: relative;
   min-height: 600px;
-  background: #FFC5D3;
-  background-size: auto;
-  background-position: top left;
-  background-repeat: repeat;
   border-radius: 20px;
   padding: 2rem;
+}
+
+.right-panel.no-board {
+  background: transparent;
+  padding: 0;
+}
+
+.right-panel.has-board {
+  background-color: #FFC5D3;
+}
+
+.placeholder-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.placeholder-image {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .boards-header {
