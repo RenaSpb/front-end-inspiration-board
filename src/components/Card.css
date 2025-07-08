@@ -25,20 +25,24 @@
 .card::after {
   content: '';
   position: absolute;
-  width: 50px;
-  height: 20px;
-  background: #dcd3c3;
-  opacity: 0.6;
-  transform: rotate(-5deg);
-  top: -10px;
-  left: 10px;
-  z-index: 1;
+  width: 12px;
+  height: 12px;
+  background: #8B4513;
+  border-radius: 50%;
+  top: 15px;
+  z-index: 2;
+  box-shadow: 
+    inset -2px -2px 3px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  left: 15px;
 }
 
 .card::after {
-  transform: rotate(5deg);
-  left: auto;
-  right: 10px;
+  right: 15px;
 }
 
 .card p {
@@ -50,6 +54,7 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 .card-actions {
